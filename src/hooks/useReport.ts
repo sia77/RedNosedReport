@@ -22,8 +22,8 @@ export const useReports = (filePath:string) => {
                     throw new Error("Fetch has failed.");
                 }                    
                 
-                const reports = await response.text();
-                setReports(parseReports(reports));
+                const allReports = await response.text();
+                setReports(parseReports(allReports));
 
             }catch(err:any){
                 if (err instanceof Error && err.name === "AbortError") {

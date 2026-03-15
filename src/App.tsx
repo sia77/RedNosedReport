@@ -1,13 +1,16 @@
 import './App.css'
 import { DisplayFindings } from './components/ReportDashboard'
+import { useReports } from './hooks/useReport';
 
 function App() {
+
+  const { reports } = useReports("input.txt");
 
 
   return (
     <>
       <section id="center">
-        <DisplayFindings />
+        <DisplayFindings allReports={reports} />
       </section>
 
     </>

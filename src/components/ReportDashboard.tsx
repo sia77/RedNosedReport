@@ -1,13 +1,32 @@
-import { useReports } from "../hooks/useReport"
+import { useMemo } from "react";
+import { AnalyseReport } from "../utils/reportAnalysis";
 
 
-export const DisplayFindings = () => {
+export const DisplayFindings = ({ allReports }: { allReports: number[][] }) => {   
 
-    const { loading, error, reports } = useReports("input.txt");
+    
+    const reportAssessment = useMemo(() => {
+        return AnalyseReport(allReports)
+    }, [allReports]) ;
 
-    console.log("jo:", reports);
-
-    return (<>Hi there</>)
-
-
+    
+    return (
+        <>
+            <h3>Red-Nosed Report...</h3>
+            <div>
+                {
+                    reportAssessment.map((ra:any, i:number) => (
+                        <div key={i} className="result">
+                            <div>{ra.isSafe ? "Safe" : "Unsafe"}</div>
+                            <div>&nbsp;</div>
+                            <div className="flex">{
+                                ra.levels.map((el:any)=> <div className="report_box" key={el}>{el}</div>)
+                            }</div>
+                        </div>
+ 
+                    ))
+                }
+            </div>
+        </>
+    )
 }
