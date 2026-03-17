@@ -6,26 +6,29 @@ export const DisplayFindings = ({ allReports }: { allReports: number[][] }) => {
 
     
     const reportAssessment = useMemo(() => {
-        return AnalyseReport(allReports)
+
+        return AnalyseReport(allReports);
+
     }, [allReports]) ;
 
     
     return (
         <>
-            <h3>Red-Nosed Report...</h3>
-            <div>
-                {
-                    reportAssessment.map((ra:any, i:number) => (
-                        <div key={i} className="result">
-                            <div>{ra.isSafe ? "Safe" : "Unsafe"}</div>
-                            <div>&nbsp;</div>
-                            <div className="flex">{
-                                ra.levels.map((el:any)=> <div className="report_box" key={el}>{el}</div>)
-                            }</div>
-                        </div>
- 
-                    ))
-                }
+            <div className="flex flex_direction">
+                <h3>Red-Nosed Report...</h3>
+                <div>
+                    {
+                        reportAssessment.map((ra:any) => (
+                            <div key={ra.id} className="result">
+                                <div>{ra.isSafe ? "Safe" : "Unsafe"}</div>
+                                <div>&nbsp;</div>
+                                <div className="flex">{
+                                    ra.levels.map((el:any, index:number)=> <div className="report_box" key={`${ra.id}-lvl-${index}`}>{el}</div>)
+                                }</div>
+                            </div>    
+                        ))
+                    }
+                </div>
             </div>
         </>
     )

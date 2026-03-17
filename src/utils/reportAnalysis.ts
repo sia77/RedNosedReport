@@ -1,5 +1,6 @@
 
 import type { ReportAssessment } from "../interface/interface";
+import { v4 as uuidv4 } from 'uuid';
 
 
 export const AnalyseReport = (allReports:number[][]): ReportAssessment[] => {
@@ -15,7 +16,7 @@ export const AnalyseReport = (allReports:number[][]): ReportAssessment[] => {
             diffs.every((n:number) => n >= 1 && n <=3 ) ||
             diffs.every((n:number) => n <= -1 && n >= -3 );
 
-        return {isSafe, levels:report};
+        return {isSafe, levels:report, id:uuidv4()};
 
     });
 }

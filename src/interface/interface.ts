@@ -1,5 +1,6 @@
 export interface ReportAssessment{
     isSafe:boolean;
     levels:number[];
-    errorMessage?:string;    
+    errorMessage?:string; 
+    id:string; 
 }

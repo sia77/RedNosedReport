@@ -6,7 +6,35 @@ body {
   font-size:25px;
 }
 
-.result, .flex{
+.flex{
+  display:flex;
+}
+
+.center {
+  justify-content: center;
+}
+
+.flex_direction{
+  flex-direction:column;
+}
+
+.app_width{
+  max-width: 300px;
+}
+
+.hundredHeight{
+  height:100%;
+}
+
+.space_between{
+  justify-content: space-between;
+}
+
+.bg_color{
+  background-color: #f6f6f9;
+}
+
+.result {
   display:flex;
   margin-bottom:3px;
   justify-content: space-between;
@@ -18,4 +46,29 @@ body {
   height:30px;
   width:30px;
   padding:1px 5px;
+}
+
+
+
+
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes top to top, bottom to bottom */
+  align-items: center;           /* Centers everything horizontally */
+  min-height: 100vh;             /* Forces the container to be full screen height */
+  width: 100%;
+  margin: 0;
+}
+
+.top-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;       /* Centers the inner component */
+}
+
+.bottom-footer {
+  width: 100%;
+  padding-bottom: 20px;          /* Replaces your empty div/nbsp */
 }
